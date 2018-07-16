@@ -6,17 +6,14 @@ import org.springframework.web.client.RestOperations;
 public class Client {
 
     private final RestOperations restTemplate;
-    private final String serviceEndpoint;
 
-    public Client(String serviceEndpoint) {
-
-        this.restTemplate = new RestTemplate();
-        this.serviceEndpoint = serviceEndpoint;
+    public Client(RestOperations restTemplate) {
+        this.restTemplate = restTemplate;
     }
 
     public void billUser(String userId, int amount) {
 
-        restTemplate.postForEntity(serviceEndpoint + "/reocurringPayment", amount, String.class);
+        restTemplate.postForEntity("//billing/reocurringPayment", amount, String.class);
 
     }
 }
