@@ -1,13 +1,14 @@
 buildscript {
-	ext {
-		springBootVersion = '2.0.3.RELEASE'
-	}
-	repositories {
-		mavenCentral()
-	}
-	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-	}
+    ext {
+//		springBootVersion = '2.0.3.RELEASE'
+        springBootVersion = '1.4.2.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
 }
 
 apply plugin: 'java'
@@ -15,16 +16,24 @@ apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
-group = 'com.example.billing'
-version = '0.0.1-SNAPSHOT'
+//group = 'com.example.billing'
+//version = '0.0.1-SNAPSHOT'
+//sourceCompatibility = 1.8
+
+jar {
+    baseName = 'billing'
+    version = '0.0.1-SNAPSHOT'
+}
 sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter-web')
-	testCompile('org.springframework.boot:spring-boot-starter-test')
+    compile('org.springframework.boot:spring-boot-starter-web')
+//    compile(project(":components/payments"))
+    testCompile('org.springframework.boot:spring-boot-starter-test')
 }
