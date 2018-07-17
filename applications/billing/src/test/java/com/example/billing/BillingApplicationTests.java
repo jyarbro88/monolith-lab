@@ -1,4 +1,4 @@
-package com.example.billing.billing;
+package com.example.billing;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -55,8 +55,7 @@ public class Application implements CommandLineRunner {
     }
 
     @Bean
-    public Client billingClient(
-            @Autowired RestTemplate restTemplate) {
+    public Client billingClient(@Autowired RestTemplate restTemplate) {
         return new Client(restTemplate);
     }
 }

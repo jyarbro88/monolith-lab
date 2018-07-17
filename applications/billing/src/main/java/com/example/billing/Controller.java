@@ -1,4 +1,4 @@
-package com.example.billing.billing;
+package com.example.billing;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
