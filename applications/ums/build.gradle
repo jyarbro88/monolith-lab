@@ -9,7 +9,7 @@ buildscript {
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
 //        classpath("io.spring.gradle:dependency-management-plugin:0.5.2.RELEASE")
-        classpath("io.spring.gradle:dependency-management-plugin:0.6.1.RELEASE")
+//        classpath("io.spring.gradle:dependency-management-plugin:0.6.1.RELEASE")
     }
 }
 
@@ -41,5 +41,7 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-jdbc")
     compile("io.pivotal.spring.cloud:spring-cloud-services-starter-service-registry")
+    compile("io.pivotal.spring.cloud:spring-cloud-services-starter-circuit-breaker")
+    compile("io.pivotal.spring.cloud:spring-cloud-services-starter-config-client")
     compile("com.h2database:h2")
 }

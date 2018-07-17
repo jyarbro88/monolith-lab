@@ -1,35 +1,32 @@
 package com.example.billing.billing;
 
-import com.example.payments.Gateway;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-public class BillingController {
+public class Controller {
 
     @Autowired
-    private Gateway gateway;
+    private com.example.payments.Gateway gateway;
 
     @RequestMapping(
-            value = "/recurringPayment",
+            value = "/reoccurringPayment",
             method = RequestMethod.POST,
             produces = "application/json"
     )
-    public ResponseEntity<String> createRecurringPayment(
-            @RequestBody int amount) {
+    public ResponseEntity<String> createReoccurringPayment(@RequestBody int amount){
 
         ResponseEntity<String> response;
 
-        if (gateway.createReocurringPayment(amount)) {
+        if(gateway.createReoccurringPayment(amount)) {
             response = new ResponseEntity<>("{errors: []}", HttpStatus.CREATED);
         } else {
             response = new ResponseEntity<>("{errors: [\"error1\", \"error2\"]}", HttpStatus.BAD_REQUEST);
         }
 
         return response;
-
     }
 }
