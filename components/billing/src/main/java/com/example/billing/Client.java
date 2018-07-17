@@ -1,5 +1,6 @@
 package com.example.billing;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.web.client.RestOperations;
 
 public class Client {
@@ -10,6 +11,7 @@ public class Client {
         this.restTemplate = restTemplate;
     }
 
+    @HystrixCommand(fallbackMethod = "billUserFallback")
     public void billUser(String userId, int amount) {
         restTemplate.postForEntity("//billing/reoccurringPayment", amount, String.class);
     }

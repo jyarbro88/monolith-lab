@@ -5,6 +5,3 @@ spring:
   application:
     name: billing
 
-security:
-  basic:
-    enabled: false
